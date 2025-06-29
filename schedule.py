@@ -61,24 +61,23 @@ def generate_class_dates(day_name, year, month, holidays):
     return valid_dates
 
 
-def process_data():
+def process_data(month, year):
     """
     Processes the student data, computes class dates, and calculates totals.
 
-    Reads from "example.csv" for student information, generates a schedule,
-    and returns a tuple of:
-        (students_df, schedule_df)
-    The schedule_df includes an extra "Day" column holding the abbreviated day of the week (first three letters).
+    Parameters:
+    - month (int): Numeric month (e.g., 7 for July)
+    - year (int): Four-digit year (e.g., 2025)
+
+    Returns:
+    Tuple: (students_df, schedule_df)
     """
-    # Read the CSV containing student information
-    students_df = pd.read_csv("example.csv")
-    year, month = datetime.date.today().year, datetime.date.today().month
+    students_df = pd.read_csv("students.csv")
     holidays = get_holidays(year)
 
-    schedule_data = []  # Container for per-class schedule entries
+    schedule_data = []
     for _, row in students_df.iterrows():
         student = row["Student Name"]
-        # Split strings into lists
         days = row["Days Of Week"].split(", ")
         hours_per_day = list(map(float, row["Hours per Day"].split(", ")))
         price_per_hour = float(row["Price per hour"])
@@ -90,9 +89,7 @@ def process_data():
             valid_dates = generate_class_dates(day, year, month, holidays)
             for date_obj in valid_dates:
                 formatted_date = date_obj.strftime("%d-%B-%Y")
-                # Use full weekday name (%A) and then take the first three letters (title-cased)
-                full_day = date_obj.strftime("%a").lower()  # e.g., "lunes"
-                day_abbr = full_day[:3].title()  # e.g., "Lun"
+                day_abbr = date_obj.strftime("%a").title()
                 schedule_data.append({
                     "Student": student,
                     "Date": formatted_date,
@@ -102,23 +99,21 @@ def process_data():
                 total_hours += hours
                 total_payment += hours * price_per_hour
 
-        students_df.loc[students_df["Student Name"] == student, ["Total Hours", "Total Payment (ARS)"]] = [total_hours,
-                                                                                                           total_payment]
+        students_df.loc[students_df["Student Name"] == student, ["Total Hours", "Total Payment (ARS)"]] = [total_hours, total_payment]
 
     return students_df, pd.DataFrame(schedule_data)
 
 
-def save_csvs(students_df, schedule_df, summary_folder):
+def save_csvs(students_df, schedule_df, summary_folder, prefix):
     """
-    Saves the students and schedule DataFrames as CSV files in the given folder.
-    Each file is prefixed with the current month-year in numeric format (e.g., "06-2025_").
+    Saves the students and schedule DataFrames as CSV files with a custom prefix.
 
     Parameters:
     - students_df (DataFrame): The processed student summary data.
-    - schedule_df (DataFrame): The schedule data including dates and day abbreviations.
-    - summary_folder (str): Folder where the CSV files will be saved.
+    - schedule_df (DataFrame): The schedule data with dates and days.
+    - summary_folder (str): Target folder for CSVs.
+    - prefix (str): Custom month-year prefix like "07-2025".
     """
     os.makedirs(summary_folder, exist_ok=True)
-    prefix = datetime.date.today().strftime("%m-%Y")
     students_df.to_csv(f"{summary_folder}/{prefix}_summary.csv", index=False)
     schedule_df.to_csv(f"{summary_folder}/{prefix}_schedule.csv", index=False)
