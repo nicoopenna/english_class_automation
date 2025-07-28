@@ -3,6 +3,7 @@ import schedule
 import image
 import datetime
 import os
+from preparation import download_sheet_data  # Import from our new module
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -37,6 +38,10 @@ def main():
     os.makedirs(SUMMARIES_FOLDER, exist_ok=True)
 
     # 3) Run pipeline
+    #First download latest data
+    print("⬇️ Downloading latest schedule data...")
+    if not download_sheet_data():
+        print("⚠️ Proceeding with local data version")
     print("📂 Creating data structure...")
     students_df, schedule_df = schedule.process_data(month, year)
 

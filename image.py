@@ -10,8 +10,11 @@ locale.setlocale(locale.LC_TIME, "es_ES.UTF-8")  # Try "es_AR.UTF-8" if needed
 # Global settings
 ISSUE_DATE = datetime.date.today().strftime("%d de %B de %Y").capitalize()
 LOGO_PATH = "logo.png"  # Path to the logo image
-FONT_BOLD = "arialbd.ttf"  # Bold font for section titles
-FONT_REGULAR = "arial.ttf"  # Regular font for normal text
+
+# Define font paths (relative to your script)
+FONT_REGULAR = "Roboto/static/Roboto-Regular.ttf"
+FONT_BOLD = "Roboto/static/Roboto-Bold.ttf"
+
 
 
 def generate_class_summary(student_name, class_days, total_hours, total_payment, invoice_folder, prefix):

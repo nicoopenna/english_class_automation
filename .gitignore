@@ -3,5 +3,6 @@
 __pycache__
 Invoices
 Summaries
-Students.csv
+students.csv
 .venv
+/auth
