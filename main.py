@@ -1,9 +1,12 @@
 import argparse
 import schedule
 import image
+import upload
 import datetime
 import os
 from preparation import download_sheet_data  # Import from our new module
+from upload import upload_invoices
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -28,6 +31,7 @@ def main():
     month = args.month or today.month
     year  = args.year  or today.year
     prefix = f"{str(month).zfill(2)}-{year}"
+    FOLDER_TO_UPLOAD = f"Invoices/{prefix}"
 
     # 2) Prepare folders
     INVOICES_FOLDER = "Invoices"
@@ -55,6 +59,12 @@ def main():
         f"✅ Done! CSVs in '{SUMMARIES_FOLDER}', images in '{invoice_subfolder}'.\n"
         f"   Files are prefixed with '{prefix}_'."
     )
+
+    print("Uploading invoices to Google Drive...")
+    upload.upload_invoices(prefix)
+
+
+
 
 if __name__ == "__main__":
     main()
