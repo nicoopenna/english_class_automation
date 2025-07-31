@@ -1,27 +1,51 @@
-# English Classes Invoice Generator
+# English Class Automation System
 
-**Tags:** `Python` `pandas` `Pillow` `argparse` `locale`
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+![Google APIs](https://img.shields.io/badge/Google%20Sheets%20API-✓-green.svg)
+![Google Drive](https://img.shields.io/badge/Google%20Drive%20API-✓-green.svg)
+![Automation](https://img.shields.io/badge/automation-✓-brightgreen.svg)
 
-Automate monthly CSV summaries and per-student invoice PNGs for your English tutoring.
+## 🌟 Features
 
-## 🚀 Features
-- Reads `students.csv`, computes class dates (skips holidays)  
-- Exports:
-  - `Summaries/<MM-YYYY>_summary.csv` (totals)
-  - `Summaries/<MM-YYYY>_schedule.csv` (per-class dates)
-  - `Invoices/<MM-YYYY>/<MM-YYYY_Student_invoice.png>`
-- CLI flags `--month` & `--year` (defaults to today)  
-- Three-column date layout
+### Data Pipeline
+- Dynamic CSV export from Google Sheets
+- Holiday-aware scheduling
+- Bilingual date handling (English/Spanish)
 
-## 🔧 Requirements
-- Python 3.8+  
-- pandas, Pillow (`pip install -r requirements.txt`)  
-- Spanish locale (e.g. `es_ES.UTF-8`)  
-- Fonts: `arial.ttf`, `arialbd.ttf`  
+### Google Drive Integration
+- OAuth2 authenticated uploads
+- Automatic month/year folder creation
+- Conflict-resistant file management
 
-## ⚙️ Quickstart
-```bash
-git clone <repo> && cd <repo>
-pip install -r requirements.txt
-# add logo.png & students.csv
-python main.py --month 7 --year 2025
+### Invoice Generation
+- PDF creation with professional typography
+- Automatic totals calculation
+- Clean template design
+
+## 🛠 Tech Stack
+
+```mermaid
+graph LR
+    A[Sheets] --> B[Python]
+    B --> C[PNGs]
+    B --> D[Drive]
+```
+# 🚀 Usage
+## Run with specific month/year
+```shell
+python main.py -m 8 -y 2025
+```
+### Auto-detect current month
+```shell
+python main.py
+```
+
+
+## 📂 File Structure
+/ (root)
+├── Invoices/           # Generated PNGs
+├── logs/               # Execution logs
+├── auth/               # OAuth credentials
+├── main.py             # Core pipeline
+├── preparation.py      # Sheets exporter
+└── upload.py           # Drive uploader
