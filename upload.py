@@ -1,64 +1,45 @@
 import os
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
+from utils import create_logging, authenticate
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from googleapiclient.errors import HttpError
-from utils import  create_logging
 
 # Configuration
-SCOPES = ['https://www.googleapis.com/auth/drive']
-TOKEN_FILE = 'auth/gdrive/token.json'
-CREDENTIALS_FILE = 'auth/credentials.json'
-DRIVE_FOLDER_ID = '1DBOTcdJQ6WhYIoeZ2L_zqUY98FgVTHrs'  # Your target folder
+scopes = ['https://www.googleapis.com/auth/drive']
+token_file = 'auth/gdrive/token.json'
+credentials_file = 'auth/credentials.json'
+# Personal folder
+#drive_folder_id = '1DBOTcdJQ6WhYIoeZ2L_zqUY98FgVTHrs'  # Your target folder
+# External folder
+drive_folder_id = '18zg-iJMVFJWHcoBBb2m3PD_-cO8d_62o'
+logger = create_logging('upload', 'upload.log')
 
-logger = create_logging('logs/drive_upload.log')
 
-def authenticate() -> Credentials:
+def create_drive_folder(service, month_year):
     """
-    Handles OAuth2 authentication flow for Google Drive API access.
-    Steps:
-    1. Checks for existing valid credentials in token.json
-    2. Refreshes token if expired
-    3. Initiates new auth flow if no valid credentials exist
-    4. Stores new credentials for future use
-    Returns: Credentials: Authenticated credentials object
-    Raises: Exception: If authentication fails
+    Creates a new folder in Google Drive for the given month_year
+    Returns the new folder ID
     """
+    folder_metadata = {
+        'name': month_year,
+        'mimeType': 'application/vnd.google-apps.folder',
+        'parents': [drive_folder_id]  # Your root folder ID
+    }
+
     try:
-        creds = None
+        folder = service.files().create(
+            body=folder_metadata,
+            fields='id'
+        ).execute()
+        logger.info(f"Created new Drive folder: {month_year} (ID: {folder['id']})")
+        return folder['id']
 
-        # Load existing credentials if available
-        if os.path.exists(TOKEN_FILE):
-            logger.debug("Loading existing credentials")
-            creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-
-        # Refresh or create new credentials if needed
-        if not creds or not creds.valid:
-            if creds and creds.expired and creds.refresh_token:
-                logger.info("Refreshing expired credentials")
-                creds.refresh(Request())
-            else:
-                logger.info("Initiating new authentication flow")
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    CREDENTIALS_FILE, SCOPES)
-                creds = flow.run_local_server(port=0)
-
-            # Store the credentials for the next run
-            logger.debug("Storing new credentials")
-            os.makedirs(os.path.dirname(TOKEN_FILE), exist_ok=True)
-            with open(TOKEN_FILE, 'w') as token:
-                token.write(creds.to_json())
-
-        return creds
-
-    except Exception as e:
-        logger.error("Authentication failed", exc_info=True)
+    except HttpError as error:
+        logger.error(f"Failed to create folder: {error}")
         raise
 
 
-def upload_invoices(month_year: str, drive_folder_id: str) -> bool:
+def upload_invoices(month_year: str) -> bool:
     """
     Uploads all files from a local folder to specified Google Drive folder.
     Process:
@@ -72,7 +53,8 @@ def upload_invoices(month_year: str, drive_folder_id: str) -> bool:
         logger.info(f"Starting upload for {month_year} to folder {drive_folder_id[:4]}...")  # Truncate ID for logs
 
         # Initialize API service
-        service = build('drive', 'v3', credentials=authenticate())
+        service = build('drive', 'v3', credentials=authenticate(token_file, credentials_file, scopes, logger))
+        target_folder_id = create_drive_folder(service, month_year)
         local_folder = os.path.join('Invoices', month_year)
 
         # Verify source folder
@@ -90,7 +72,7 @@ def upload_invoices(month_year: str, drive_folder_id: str) -> bool:
 
                     file_metadata = {
                         'name': filename,
-                        'parents': [drive_folder_id]
+                        'parents': [target_folder_id]
                     }
                     media = MediaFileUpload(filepath)
 

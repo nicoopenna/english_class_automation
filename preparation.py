@@ -1,52 +1,60 @@
-import os.path
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
+import os
 import csv
+from googleapiclient.discovery import build
+from utils import create_logging, authenticate
 
+# Initialize logging
+logger = create_logging('preparation', 'preparation.log')
+# Configuration
+scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+spreadsheet_id = '1vAMoSKzAEh3r0WQxlwYnU1nu1l0VsPQKsCw_Co2GROE'
+sheet_range = 'schedule!A:D'
+output_csv = 'students.csv'
+token_file = 'auth/sheets/token.json'
+credentials_file = 'auth/credentials.json'
 
-def download_sheet_data():
-    """Download columns A-D from Google Sheet and save as schedule.csv"""
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-    SPREADSHEET_ID = '1vAMoSKzAEh3r0WQxlwYnU1nu1l0VsPQKsCw_Co2GROE'
-    SHEET_RANGE = 'schedule!A:D'
-    OUTPUT_CSV = 'students.csv'
+def download_sheet_data() -> bool:
+    """
+    Downloads columns A-D from Google Sheet and saves as schedule.csv
+    Returns: bool: True if download succeeded, False otherwise
+    """
 
-    creds = None
-    if os.path.exists('auth/token.json'):
-        creds = Credentials.from_authorized_user_file('auth/token.json', SCOPES)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'auth/credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-
-        with open('auth/token.json', 'w') as token:
-            token.write(creds.to_json())
 
     try:
+        logger.info("Starting Google Sheets data download")
+
+        # Authenticate using utils function
+        creds = authenticate(
+            token_file=token_file,
+            credentials_file=credentials_file,
+            scopes=scopes,
+            logger=logger
+        )
+
+        # Initialize Sheets API
         service = build('sheets', 'v4', credentials=creds)
+        logger.debug("Sheets API service initialized")
+
+        # Get data from sheet
+        logger.info(f"Downloading range {sheet_range} from spreadsheet")
         result = service.spreadsheets().values().get(
-            spreadsheetId=SPREADSHEET_ID,
-            range=SHEET_RANGE
+            spreadsheetId=spreadsheet_id,
+            range=sheet_range
         ).execute()
         values = result.get('values', [])
 
         if not values:
-            print('⚠️ No data found in the specified range.')
+            logger.warning("No data found in specified range")
             return False
 
-        with open(OUTPUT_CSV, 'w', newline='') as csvfile:
+        # Write to CSV
+        with open(output_csv, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerows(values)
 
-        print(f'✅ Downloaded latest data to {os.path.abspath(OUTPUT_CSV)}')
+        logger.info(f"Successfully saved data to {os.path.abspath(output_csv)}")
         return True
 
     except Exception as e:
-        print(f'❌ Download failed: {str(e)}')
+        logger.error(f"Download failed: {str(e)}", exc_info=True)
         return False
