@@ -1,8 +1,8 @@
 import os
 from googleapiclient.http import MediaFileUpload
 from googleapiclient.discovery import build
-from utils import authenticate, create_logging
-import config
+from .utils import authenticate, create_logging
+from . import config
 
 # Initialize logging for this module
 logger = create_logging("upload", "upload.log")

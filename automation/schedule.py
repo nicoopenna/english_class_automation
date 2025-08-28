@@ -4,7 +4,7 @@ import datetime
 import calendar
 import locale
 import os
-import config
+from . import config
 from typing import Set, List
 
 # Set locale to Spanish for date formatting

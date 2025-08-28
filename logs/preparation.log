@@ -59,3 +59,16 @@ google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'i
 2025-08-28 19:14:48,582 - preparation - INFO - Initiating new authentication flow
 2025-08-28 19:14:59,871 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
 2025-08-28 19:15:00,888 - preparation - INFO - Successfully saved data to /home/nspenna/Documents/PycharmProjects/english_class_automation/students.csv
+2025-08-28 19:37:23,551 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:37:23,551 - preparation - INFO - Initiating new authentication flow
+2025-08-28 19:37:34,328 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:42:41,436 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:42:41,439 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:43:07,248 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:43:07,251 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:44:56,510 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:44:56,513 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:47:14,407 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:47:14,410 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:49:15,763 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:49:15,766 - preparation - INFO - Downloading range schedule!A:D from spreadsheet

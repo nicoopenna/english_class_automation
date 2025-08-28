@@ -3,14 +3,20 @@ import os
 import datetime
 import locale
 import math
-import config
+from . import config
 
 # Set locale to Spanish for proper month names
 locale.setlocale(locale.LC_TIME, "es_ES.UTF-8")
 
 
 def generate_class_summary(
-    student_name, class_days, total_hours, total_payment, invoice_folder, prefix
+    student_name,
+    class_days,
+    total_hours,
+    total_payment,
+    invoice_folder,
+    prefix,
+    issue_date_formatted,
 ):
     """
     Generates a structured class summary image for a given student and saves it.
@@ -37,7 +43,7 @@ def generate_class_summary(
     draw.text((50, 320), f"Nombre: {student_name}", font=section_font, fill="black")
     draw.text(
         (50, 380),
-        f"Fecha de emisión: {config.ISSUE_DATE_FORMATTED}",
+        f"Fecha de emisión: {issue_date_formatted}",
         font=text_font,
         fill="black",
     )
@@ -94,7 +100,7 @@ def generate_class_summary(
     img.save(os.path.join(invoice_folder, filename))
 
 
-def generate_images(students_df, schedule_df, invoice_folder, prefix):
+def generate_images(students_df, schedule_df, invoice_folder, prefix, month, year):
     """
     Iterates over each student record and generates the invoice summary image.
 
@@ -102,7 +108,17 @@ def generate_images(students_df, schedule_df, invoice_folder, prefix):
     - students_df (DataFrame): DataFrame containing student summary information.
     - schedule_df (DataFrame): DataFrame with the class schedule dates for each student.
     - invoice_folder (str): Folder where the invoice images will be saved.
+    - prefix (str): The month-year prefix for the local folder (e.g., '09-2025').
+    - month (int): The month number.
+    - year (int): The year number.
     """
+    # Create issue date string based on the provided month and year
+    issue_date_formatted = (
+        datetime.date(year, month, datetime.date.today().day)
+        .strftime("%d de %B de %Y")
+        .capitalize()
+    )
+
     for _, row in students_df.iterrows():
         student_name = row["Student Name"]
         total_hours = row["Total Hours"]
@@ -117,4 +133,5 @@ def generate_images(students_df, schedule_df, invoice_folder, prefix):
             total_payment,
             invoice_folder,
             prefix,
+            issue_date_formatted,
         )

@@ -1,12 +1,12 @@
 import argparse
 import os
 import datetime
-from preparation import download_sheet_data
-from schedule import process_data, save_csvs
-import image
-import upload
-import config
-from utils import create_logging
+from .preparation import download_sheet_data
+from .schedule import process_data, save_csvs
+from .image import generate_images
+from .upload import upload_invoices
+from . import config
+from .utils import create_logging
 
 # Configure logging for main.py
 logger = create_logging(__name__, "main.log")
@@ -39,21 +39,22 @@ def run_pipeline(month: int, year: int, non_class_dates_path: str):
     """
     Main pipeline function to orchestrate the entire process.
     """
+    # Create dynamic variables based on the month and year
+    prefix = f"{str(month).zfill(2)}-{year}"
+    invoice_subfolder = os.path.join(config.INVOICES_FOLDER, prefix)
+
     # 1) Prepare folders
     os.makedirs(config.INVOICES_FOLDER, exist_ok=True)
     os.makedirs(config.SUMMARIES_FOLDER, exist_ok=True)
-    os.makedirs(config.INVOICE_SUBFOLDER, exist_ok=True)
+    os.makedirs(invoice_subfolder, exist_ok=True)
 
     # 2) Run pipeline
     print("⬇️ Downloading latest schedule data...")
     sheet_data = download_sheet_data()
     if not sheet_data:
         logger.warning("No data found in Google Sheet. Proceeding with local version.")
-        # Fallback to local data if no new data is downloaded
-        # NOTE: This requires a pre-existing students.csv file
         students_csv_path = config.STUDENTS_CSV_FILE
     else:
-        # If new data is downloaded, save it to the students.csv file
         print(
             f"✅ Successfully downloaded data. Saving to '{config.STUDENTS_CSV_FILE}'."
         )
@@ -70,20 +71,18 @@ def run_pipeline(month: int, year: int, non_class_dates_path: str):
     )
 
     print("📄 Generating CSVs...")
-    save_csvs(students_df, schedule_df, config.SUMMARIES_FOLDER, config.PREFIX)
+    save_csvs(students_df, schedule_df, config.SUMMARIES_FOLDER, prefix)
 
     print("🖼️ Generating summary images...")
-    image.generate_images(
-        students_df, schedule_df, config.INVOICE_SUBFOLDER, config.PREFIX
-    )
+    generate_images(students_df, schedule_df, invoice_subfolder, prefix, month, year)
 
     print(
-        f"✅ Done! CSVs in '{config.SUMMARIES_FOLDER}', images in '{config.INVOICE_SUBFOLDER}'.\n"
-        f"   Files are prefixed with '{config.PREFIX}_'."
+        f"✅ Done! CSVs in '{config.SUMMARIES_FOLDER}', images in '{invoice_subfolder}'.\n"
+        f"   Files are prefixed with '{prefix}_'."
     )
 
     print("Uploading invoices to Google Drive...")
-    upload.upload_invoices(config.PREFIX)
+    upload_invoices(prefix)
 
 
 def main():
@@ -91,9 +90,13 @@ def main():
     Main entry point for the application.
     """
     args = parse_args()
-    month = args.month or config.MONTH
-    year = args.year or config.YEAR
+
+    # Get current date as default
+    today = datetime.date.today()
+    month = args.month or today.month
+    year = args.year or today.year
     non_class_dates_path = args.non_class_dates
+
     try:
         run_pipeline(month, year, non_class_dates_path)
     except Exception as e:

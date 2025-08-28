@@ -104,3 +104,179 @@ google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'i
 2025-08-28 19:16:09,496 - upload - INFO - Uploaded: 09-2025_Juani_invoice.png
 2025-08-28 19:16:11,953 - upload - INFO - Uploaded: 09-2025_Matias_invoice.png
 2025-08-28 19:16:11,954 - upload - INFO - Upload completed with 24 successful files
+2025-08-28 19:37:37,051 - upload - INFO - Successfully authenticated with Google Drive
+2025-08-28 19:37:37,051 - upload - INFO - Checking for existing folder 'Invoices'...
+2025-08-28 19:37:37,598 - upload - INFO - Folder not found. Creating a new one...
+2025-08-28 19:37:38,109 - upload - INFO - New folder created. ID: 19cKqxNHaBzTKOajJxbgj7-PApLA27UxA
+2025-08-28 19:37:38,109 - upload - INFO - Checking for existing folder '08-2025'...
+2025-08-28 19:37:38,518 - upload - INFO - Folder found. ID: 14WtSnWtsZ7RMlae1mt8SZTPQxPNq0_EQ
+2025-08-28 19:37:40,362 - upload - INFO - Uploading file: 08-2025_Nahuel_invoice.png
+2025-08-28 19:37:42,717 - upload - INFO - Successfully uploaded 08-2025_Nahuel_invoice.png
+2025-08-28 19:37:42,717 - upload - INFO - Uploading file: 08-2025_Fifi_invoice.png
+2025-08-28 19:37:44,972 - upload - INFO - Successfully uploaded 08-2025_Fifi_invoice.png
+2025-08-28 19:37:44,972 - upload - INFO - Uploading file: 08-2025_Luciana_P__invoice.png
+2025-08-28 19:37:47,222 - upload - INFO - Successfully uploaded 08-2025_Luciana_P__invoice.png
+2025-08-28 19:37:47,222 - upload - INFO - Uploading file: 08-2025_Ian_invoice.png
+2025-08-28 19:37:49,476 - upload - INFO - Successfully uploaded 08-2025_Ian_invoice.png
+2025-08-28 19:37:49,477 - upload - INFO - Uploading file: 08-2025_Anabella__invoice.png
+2025-08-28 19:37:51,522 - upload - INFO - Successfully uploaded 08-2025_Anabella__invoice.png
+2025-08-28 19:37:51,523 - upload - INFO - Uploading file: 08-2025_Camila_invoice.png
+2025-08-28 19:44:58,957 - upload - INFO - Successfully authenticated with Google Drive
+2025-08-28 19:44:58,958 - upload - INFO - Checking for existing folder 'Invoices'...
+2025-08-28 19:44:59,429 - upload - INFO - Folder found. ID: 19cKqxNHaBzTKOajJxbgj7-PApLA27UxA
+2025-08-28 19:44:59,429 - upload - INFO - Checking for existing folder '09-2025'...
+2025-08-28 19:44:59,968 - upload - INFO - Folder found. ID: 1XY-g5rsYHJqbITv2-4Z6TRett9bNK77T
+2025-08-28 19:45:00,992 - upload - INFO - Uploading file: 09-2025_Anabella__invoice.png
+2025-08-28 19:45:03,348 - upload - INFO - Successfully uploaded 09-2025_Anabella__invoice.png
+2025-08-28 19:45:03,348 - upload - INFO - Uploading file: 09-2025_Anabella_A__invoice.png
+2025-08-28 19:45:05,805 - upload - INFO - Successfully uploaded 09-2025_Anabella_A__invoice.png
+2025-08-28 19:45:05,806 - upload - INFO - Uploading file: 09-2025_Ane_invoice.png
+2025-08-28 19:45:08,058 - upload - INFO - Successfully uploaded 09-2025_Ane_invoice.png
+2025-08-28 19:45:08,058 - upload - INFO - Uploading file: 09-2025_Camila_invoice.png
+2025-08-28 19:45:10,413 - upload - INFO - Successfully uploaded 09-2025_Camila_invoice.png
+2025-08-28 19:45:10,414 - upload - INFO - Uploading file: 09-2025_Euge_invoice.png
+2025-08-28 19:45:12,827 - upload - INFO - Successfully uploaded 09-2025_Euge_invoice.png
+2025-08-28 19:45:12,827 - upload - INFO - Uploading file: 09-2025_Felipe_invoice.png
+2025-08-28 19:45:15,108 - upload - INFO - Successfully uploaded 09-2025_Felipe_invoice.png
+2025-08-28 19:45:15,108 - upload - INFO - Uploading file: 09-2025_Fifi_invoice.png
+2025-08-28 19:45:17,990 - upload - INFO - Successfully uploaded 09-2025_Fifi_invoice.png
+2025-08-28 19:45:17,991 - upload - INFO - Uploading file: 09-2025_Hernan_invoice.png
+2025-08-28 19:45:20,210 - upload - INFO - Successfully uploaded 09-2025_Hernan_invoice.png
+2025-08-28 19:45:20,211 - upload - INFO - Uploading file: 09-2025_Ian_invoice.png
+2025-08-28 19:45:23,111 - upload - INFO - Successfully uploaded 09-2025_Ian_invoice.png
+2025-08-28 19:45:23,111 - upload - INFO - Uploading file: 09-2025_Juliana_invoice.png
+2025-08-28 19:45:25,776 - upload - INFO - Successfully uploaded 09-2025_Juliana_invoice.png
+2025-08-28 19:45:25,776 - upload - INFO - Uploading file: 09-2025_Luciana_A__invoice.png
+2025-08-28 19:45:28,128 - upload - INFO - Successfully uploaded 09-2025_Luciana_A__invoice.png
+2025-08-28 19:45:28,128 - upload - INFO - Uploading file: 09-2025_Luciana_P__invoice.png
+2025-08-28 19:45:30,688 - upload - INFO - Successfully uploaded 09-2025_Luciana_P__invoice.png
+2025-08-28 19:45:30,688 - upload - INFO - Uploading file: 09-2025_Mariana_invoice.png
+2025-08-28 19:45:33,470 - upload - INFO - Successfully uploaded 09-2025_Mariana_invoice.png
+2025-08-28 19:45:33,471 - upload - INFO - Uploading file: 09-2025_Martina_invoice.png
+2025-08-28 19:45:35,705 - upload - INFO - Successfully uploaded 09-2025_Martina_invoice.png
+2025-08-28 19:45:35,705 - upload - INFO - Uploading file: 09-2025_Micol_invoice.png
+2025-08-28 19:45:37,856 - upload - INFO - Successfully uploaded 09-2025_Micol_invoice.png
+2025-08-28 19:45:37,856 - upload - INFO - Uploading file: 09-2025_Nahuel_invoice.png
+2025-08-28 19:45:40,313 - upload - INFO - Successfully uploaded 09-2025_Nahuel_invoice.png
+2025-08-28 19:45:40,314 - upload - INFO - Uploading file: 09-2025_Nori_invoice.png
+2025-08-28 19:45:42,517 - upload - INFO - Successfully uploaded 09-2025_Nori_invoice.png
+2025-08-28 19:45:42,517 - upload - INFO - Uploading file: 09-2025_Pablo_invoice.png
+2025-08-28 19:45:44,581 - upload - INFO - Successfully uploaded 09-2025_Pablo_invoice.png
+2025-08-28 19:45:44,581 - upload - INFO - Uploading file: 09-2025_Patricia_invoice.png
+2025-08-28 19:45:46,868 - upload - INFO - Successfully uploaded 09-2025_Patricia_invoice.png
+2025-08-28 19:45:46,868 - upload - INFO - Uploading file: 09-2025_Roxana_invoice.png
+2025-08-28 19:45:49,735 - upload - INFO - Successfully uploaded 09-2025_Roxana_invoice.png
+2025-08-28 19:45:49,735 - upload - INFO - Uploading file: 09-2025_Valentina_invoice.png
+2025-08-28 19:45:52,704 - upload - INFO - Successfully uploaded 09-2025_Valentina_invoice.png
+2025-08-28 19:45:52,705 - upload - INFO - Uploading file: 09-2025_Valentina_C__invoice.png
+2025-08-28 19:45:55,265 - upload - INFO - Successfully uploaded 09-2025_Valentina_C__invoice.png
+2025-08-28 19:45:55,265 - upload - INFO - Uploading file: 09-2025_Juani_invoice.png
+2025-08-28 19:45:57,620 - upload - INFO - Successfully uploaded 09-2025_Juani_invoice.png
+2025-08-28 19:45:57,620 - upload - INFO - Uploading file: 09-2025_Matias_invoice.png
+2025-08-28 19:45:59,976 - upload - INFO - Successfully uploaded 09-2025_Matias_invoice.png
+2025-08-28 19:47:16,868 - upload - INFO - Successfully authenticated with Google Drive
+2025-08-28 19:47:16,868 - upload - INFO - Checking for existing folder 'Invoices'...
+2025-08-28 19:47:17,292 - upload - INFO - Folder found. ID: 19cKqxNHaBzTKOajJxbgj7-PApLA27UxA
+2025-08-28 19:47:17,292 - upload - INFO - Checking for existing folder '09-2025'...
+2025-08-28 19:47:17,647 - upload - INFO - Folder found. ID: 1XY-g5rsYHJqbITv2-4Z6TRett9bNK77T
+2025-08-28 19:47:18,241 - upload - INFO - Uploading file: 09-2025_Anabella__invoice.png
+2025-08-28 19:47:20,565 - upload - INFO - Successfully uploaded 09-2025_Anabella__invoice.png
+2025-08-28 19:47:20,565 - upload - INFO - Uploading file: 09-2025_Anabella_A__invoice.png
+2025-08-28 19:47:22,899 - upload - INFO - Successfully uploaded 09-2025_Anabella_A__invoice.png
+2025-08-28 19:47:22,899 - upload - INFO - Uploading file: 09-2025_Ane_invoice.png
+2025-08-28 19:47:25,070 - upload - INFO - Successfully uploaded 09-2025_Ane_invoice.png
+2025-08-28 19:47:25,070 - upload - INFO - Uploading file: 09-2025_Camila_invoice.png
+2025-08-28 19:47:27,427 - upload - INFO - Successfully uploaded 09-2025_Camila_invoice.png
+2025-08-28 19:47:27,428 - upload - INFO - Uploading file: 09-2025_Euge_invoice.png
+2025-08-28 19:47:29,630 - upload - INFO - Successfully uploaded 09-2025_Euge_invoice.png
+2025-08-28 19:47:29,630 - upload - INFO - Uploading file: 09-2025_Felipe_invoice.png
+2025-08-28 19:47:31,934 - upload - INFO - Successfully uploaded 09-2025_Felipe_invoice.png
+2025-08-28 19:47:31,934 - upload - INFO - Uploading file: 09-2025_Fifi_invoice.png
+2025-08-28 19:47:34,392 - upload - INFO - Successfully uploaded 09-2025_Fifi_invoice.png
+2025-08-28 19:47:34,393 - upload - INFO - Uploading file: 09-2025_Hernan_invoice.png
+2025-08-28 19:47:36,735 - upload - INFO - Successfully uploaded 09-2025_Hernan_invoice.png
+2025-08-28 19:47:36,736 - upload - INFO - Uploading file: 09-2025_Ian_invoice.png
+2025-08-28 19:47:38,904 - upload - INFO - Successfully uploaded 09-2025_Ian_invoice.png
+2025-08-28 19:47:38,905 - upload - INFO - Uploading file: 09-2025_Juliana_invoice.png
+2025-08-28 19:47:41,249 - upload - INFO - Successfully uploaded 09-2025_Juliana_invoice.png
+2025-08-28 19:47:41,250 - upload - INFO - Uploading file: 09-2025_Luciana_A__invoice.png
+2025-08-28 19:47:43,420 - upload - INFO - Successfully uploaded 09-2025_Luciana_A__invoice.png
+2025-08-28 19:47:43,420 - upload - INFO - Uploading file: 09-2025_Luciana_P__invoice.png
+2025-08-28 19:47:45,640 - upload - INFO - Successfully uploaded 09-2025_Luciana_P__invoice.png
+2025-08-28 19:47:45,640 - upload - INFO - Uploading file: 09-2025_Mariana_invoice.png
+2025-08-28 19:47:47,700 - upload - INFO - Successfully uploaded 09-2025_Mariana_invoice.png
+2025-08-28 19:47:47,700 - upload - INFO - Uploading file: 09-2025_Martina_invoice.png
+2025-08-28 19:47:49,954 - upload - INFO - Successfully uploaded 09-2025_Martina_invoice.png
+2025-08-28 19:47:49,954 - upload - INFO - Uploading file: 09-2025_Micol_invoice.png
+2025-08-28 19:47:52,411 - upload - INFO - Successfully uploaded 09-2025_Micol_invoice.png
+2025-08-28 19:47:52,411 - upload - INFO - Uploading file: 09-2025_Nahuel_invoice.png
+2025-08-28 19:47:54,766 - upload - INFO - Successfully uploaded 09-2025_Nahuel_invoice.png
+2025-08-28 19:47:54,767 - upload - INFO - Uploading file: 09-2025_Nori_invoice.png
+2025-08-28 19:47:57,019 - upload - INFO - Successfully uploaded 09-2025_Nori_invoice.png
+2025-08-28 19:47:57,020 - upload - INFO - Uploading file: 09-2025_Pablo_invoice.png
+2025-08-28 19:47:59,477 - upload - INFO - Successfully uploaded 09-2025_Pablo_invoice.png
+2025-08-28 19:47:59,477 - upload - INFO - Uploading file: 09-2025_Patricia_invoice.png
+2025-08-28 19:48:01,729 - upload - INFO - Successfully uploaded 09-2025_Patricia_invoice.png
+2025-08-28 19:48:01,730 - upload - INFO - Uploading file: 09-2025_Roxana_invoice.png
+2025-08-28 19:48:03,778 - upload - INFO - Successfully uploaded 09-2025_Roxana_invoice.png
+2025-08-28 19:48:03,779 - upload - INFO - Uploading file: 09-2025_Valentina_invoice.png
+2025-08-28 19:48:06,338 - upload - INFO - Successfully uploaded 09-2025_Valentina_invoice.png
+2025-08-28 19:48:06,338 - upload - INFO - Uploading file: 09-2025_Valentina_C__invoice.png
+2025-08-28 19:48:08,590 - upload - INFO - Successfully uploaded 09-2025_Valentina_C__invoice.png
+2025-08-28 19:48:08,591 - upload - INFO - Uploading file: 09-2025_Juani_invoice.png
+2025-08-28 19:48:11,049 - upload - INFO - Successfully uploaded 09-2025_Juani_invoice.png
+2025-08-28 19:48:11,050 - upload - INFO - Uploading file: 09-2025_Matias_invoice.png
+2025-08-28 19:48:13,404 - upload - INFO - Successfully uploaded 09-2025_Matias_invoice.png
+2025-08-28 19:49:18,009 - upload - INFO - Successfully authenticated with Google Drive
+2025-08-28 19:49:18,009 - upload - INFO - Checking for existing folder 'Invoices'...
+2025-08-28 19:49:18,553 - upload - INFO - Folder found. ID: 19cKqxNHaBzTKOajJxbgj7-PApLA27UxA
+2025-08-28 19:49:18,554 - upload - INFO - Checking for existing folder '09-2025'...
+2025-08-28 19:49:18,940 - upload - INFO - Folder found. ID: 1XY-g5rsYHJqbITv2-4Z6TRett9bNK77T
+2025-08-28 19:49:19,499 - upload - INFO - Uploading file: 09-2025_Anabella__invoice.png
+2025-08-28 19:49:21,500 - upload - INFO - Successfully uploaded 09-2025_Anabella__invoice.png
+2025-08-28 19:49:21,500 - upload - INFO - Uploading file: 09-2025_Anabella_A__invoice.png
+2025-08-28 19:49:23,855 - upload - INFO - Successfully uploaded 09-2025_Anabella_A__invoice.png
+2025-08-28 19:49:23,855 - upload - INFO - Uploading file: 09-2025_Ane_invoice.png
+2025-08-28 19:49:26,005 - upload - INFO - Successfully uploaded 09-2025_Ane_invoice.png
+2025-08-28 19:49:26,006 - upload - INFO - Uploading file: 09-2025_Camila_invoice.png
+2025-08-28 19:49:28,156 - upload - INFO - Successfully uploaded 09-2025_Camila_invoice.png
+2025-08-28 19:49:28,157 - upload - INFO - Uploading file: 09-2025_Euge_invoice.png
+2025-08-28 19:49:30,409 - upload - INFO - Successfully uploaded 09-2025_Euge_invoice.png
+2025-08-28 19:49:30,410 - upload - INFO - Uploading file: 09-2025_Felipe_invoice.png
+2025-08-28 19:49:32,560 - upload - INFO - Successfully uploaded 09-2025_Felipe_invoice.png
+2025-08-28 19:49:32,561 - upload - INFO - Uploading file: 09-2025_Fifi_invoice.png
+2025-08-28 19:49:34,713 - upload - INFO - Successfully uploaded 09-2025_Fifi_invoice.png
+2025-08-28 19:49:34,713 - upload - INFO - Uploading file: 09-2025_Hernan_invoice.png
+2025-08-28 19:49:37,067 - upload - INFO - Successfully uploaded 09-2025_Hernan_invoice.png
+2025-08-28 19:49:37,068 - upload - INFO - Uploading file: 09-2025_Ian_invoice.png
+2025-08-28 19:49:39,215 - upload - INFO - Successfully uploaded 09-2025_Ian_invoice.png
+2025-08-28 19:49:39,216 - upload - INFO - Uploading file: 09-2025_Juliana_invoice.png
+2025-08-28 19:49:41,366 - upload - INFO - Successfully uploaded 09-2025_Juliana_invoice.png
+2025-08-28 19:49:41,366 - upload - INFO - Uploading file: 09-2025_Luciana_A__invoice.png
+2025-08-28 19:49:43,430 - upload - INFO - Successfully uploaded 09-2025_Luciana_A__invoice.png
+2025-08-28 19:49:43,430 - upload - INFO - Uploading file: 09-2025_Luciana_P__invoice.png
+2025-08-28 19:49:45,974 - upload - INFO - Successfully uploaded 09-2025_Luciana_P__invoice.png
+2025-08-28 19:49:45,974 - upload - INFO - Uploading file: 09-2025_Mariana_invoice.png
+2025-08-28 19:49:48,021 - upload - INFO - Successfully uploaded 09-2025_Mariana_invoice.png
+2025-08-28 19:49:48,022 - upload - INFO - Uploading file: 09-2025_Martina_invoice.png
+2025-08-28 19:49:50,172 - upload - INFO - Successfully uploaded 09-2025_Martina_invoice.png
+2025-08-28 19:49:50,172 - upload - INFO - Uploading file: 09-2025_Micol_invoice.png
+2025-08-28 19:49:54,268 - upload - INFO - Successfully uploaded 09-2025_Micol_invoice.png
+2025-08-28 19:49:54,268 - upload - INFO - Uploading file: 09-2025_Nahuel_invoice.png
+2025-08-28 19:49:56,623 - upload - INFO - Successfully uploaded 09-2025_Nahuel_invoice.png
+2025-08-28 19:49:56,624 - upload - INFO - Uploading file: 09-2025_Nori_invoice.png
+2025-08-28 19:49:58,876 - upload - INFO - Successfully uploaded 09-2025_Nori_invoice.png
+2025-08-28 19:49:58,876 - upload - INFO - Uploading file: 09-2025_Pablo_invoice.png
+2025-08-28 19:50:01,743 - upload - INFO - Successfully uploaded 09-2025_Pablo_invoice.png
+2025-08-28 19:50:01,743 - upload - INFO - Uploading file: 09-2025_Patricia_invoice.png
+2025-08-28 19:50:03,996 - upload - INFO - Successfully uploaded 09-2025_Patricia_invoice.png
+2025-08-28 19:50:03,996 - upload - INFO - Uploading file: 09-2025_Roxana_invoice.png
+2025-08-28 19:50:06,556 - upload - INFO - Successfully uploaded 09-2025_Roxana_invoice.png
+2025-08-28 19:50:06,556 - upload - INFO - Uploading file: 09-2025_Valentina_invoice.png
+2025-08-28 19:50:08,707 - upload - INFO - Successfully uploaded 09-2025_Valentina_invoice.png
+2025-08-28 19:50:08,707 - upload - INFO - Uploading file: 09-2025_Valentina_C__invoice.png
+2025-08-28 19:50:10,713 - upload - INFO - Successfully uploaded 09-2025_Valentina_C__invoice.png
+2025-08-28 19:50:10,713 - upload - INFO - Uploading file: 09-2025_Juani_invoice.png
+2025-08-28 19:50:12,835 - upload - INFO - Successfully uploaded 09-2025_Juani_invoice.png
+2025-08-28 19:50:12,836 - upload - INFO - Uploading file: 09-2025_Matias_invoice.png
+2025-08-28 19:50:15,260 - upload - INFO - Successfully uploaded 09-2025_Matias_invoice.png

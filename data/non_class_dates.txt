@@ -1,3 +1,2 @@
-# Archivo: non_class_dates.txt
 2025-09-11
 2025-09-12

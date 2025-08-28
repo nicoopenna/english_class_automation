@@ -1,8 +1,8 @@
 import os
 import csv
 from googleapiclient.discovery import build
-from utils import create_logging, authenticate
-import config
+from .utils import create_logging, authenticate
+from . import config
 from typing import List
 
 # Initialize logging
