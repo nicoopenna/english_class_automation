@@ -1,0 +1,61 @@
+2025-07-31 20:05:48,815 - preparation - INFO - Starting Google Sheets data download
+2025-07-31 20:05:48,817 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-07-31 20:05:49,598 - preparation - INFO - Successfully saved data to /home/nspenna/PycharmProjects/english_class_automation/students.csv
+2025-08-28 19:12:10,647 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:12:10,649 - preparation - INFO - Refreshing expired credentials
+2025-08-28 19:12:10,881 - preparation - ERROR - Authentication failed
+Traceback (most recent call last):
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/utils.py", line 66, in authenticate
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/reauth.py", line 366, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
+2025-08-28 19:12:10,884 - preparation - ERROR - Download failed: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
+Traceback (most recent call last):
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/preparation.py", line 27, in download_sheet_data
+    creds = authenticate(
+        token_file=token_file,
+    ...<2 lines>...
+        logger=logger
+    )
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/utils.py", line 66, in authenticate
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/reauth.py", line 366, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
+2025-08-28 19:14:48,582 - preparation - INFO - Starting Google Sheets data download
+2025-08-28 19:14:48,582 - preparation - INFO - Initiating new authentication flow
+2025-08-28 19:14:59,871 - preparation - INFO - Downloading range schedule!A:D from spreadsheet
+2025-08-28 19:15:00,888 - preparation - INFO - Successfully saved data to /home/nspenna/Documents/PycharmProjects/english_class_automation/students.csv

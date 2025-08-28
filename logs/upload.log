@@ -1,0 +1,106 @@
+2025-07-31 20:05:50,291 - upload - INFO - Starting upload for 08-2025 to folder 18zg...
+2025-07-31 20:05:50,929 - upload - INFO - Created new Drive folder: 08-2025 (ID: 14WtSnWtsZ7RMlae1mt8SZTPQxPNq0_EQ)
+2025-07-31 20:05:52,977 - upload - INFO - Uploaded: 08-2025_Nahuel_invoice.png
+2025-07-31 20:05:55,537 - upload - INFO - Uploaded: 08-2025_Fifi_invoice.png
+2025-07-31 20:05:57,790 - upload - INFO - Uploaded: 08-2025_Luciana_P__invoice.png
+2025-07-31 20:06:00,400 - upload - INFO - Uploaded: 08-2025_Ian_invoice.png
+2025-07-31 20:06:02,398 - upload - INFO - Uploaded: 08-2025_Anabella__invoice.png
+2025-07-31 20:06:04,571 - upload - INFO - Uploaded: 08-2025_Camila_invoice.png
+2025-07-31 20:06:06,637 - upload - INFO - Uploaded: 08-2025_Valentina_invoice.png
+2025-07-31 20:06:08,746 - upload - INFO - Uploaded: 08-2025_Martina_invoice.png
+2025-07-31 20:06:11,102 - upload - INFO - Uploaded: 08-2025_Luciana_A__invoice.png
+2025-07-31 20:06:13,257 - upload - INFO - Uploaded: 08-2025_Ane_invoice.png
+2025-07-31 20:06:15,407 - upload - INFO - Uploaded: 08-2025_Mariana_invoice.png
+2025-07-31 20:06:17,446 - upload - INFO - Uploaded: 08-2025_Micol_invoice.png
+2025-07-31 20:06:19,820 - upload - INFO - Uploaded: 08-2025_Juliana_invoice.png
+2025-07-31 20:06:21,906 - upload - INFO - Uploaded: 08-2025_Roxana_invoice.png
+2025-07-31 20:06:24,107 - upload - INFO - Uploaded: 08-2025_Nori_invoice.png
+2025-07-31 20:06:26,359 - upload - INFO - Uploaded: 08-2025_Anabella_A__invoice.png
+2025-07-31 20:06:28,714 - upload - INFO - Uploaded: 08-2025_Valentina_C__invoice.png
+2025-07-31 20:06:31,480 - upload - INFO - Uploaded: 08-2025_Pablo_invoice.png
+2025-07-31 20:06:33,937 - upload - INFO - Uploaded: 08-2025_Euge_invoice.png
+2025-07-31 20:06:36,395 - upload - INFO - Uploaded: 08-2025_Hernan_invoice.png
+2025-07-31 20:06:38,373 - upload - INFO - Uploaded: 08-2025_Patricia_invoice.png
+2025-07-31 20:06:40,593 - upload - INFO - Uploaded: 08-2025_Felipe_invoice.png
+2025-07-31 20:06:42,744 - upload - INFO - Uploaded: 08-2025_Juani_invoice.png
+2025-07-31 20:06:44,894 - upload - INFO - Uploaded: 08-2025_Matias_invoice.png
+2025-07-31 20:06:44,894 - upload - INFO - Upload completed with 24 successful files
+2025-08-28 19:12:12,635 - upload - INFO - Starting upload for 09-2025 to folder 18zg...
+2025-08-28 19:12:12,635 - upload - INFO - Refreshing expired credentials
+2025-08-28 19:12:12,843 - upload - ERROR - Authentication failed
+Traceback (most recent call last):
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/utils.py", line 66, in authenticate
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/reauth.py", line 366, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
+2025-08-28 19:12:12,844 - upload - ERROR - Unexpected error during upload
+Traceback (most recent call last):
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/upload.py", line 56, in upload_invoices
+    service = build('drive', 'v3', credentials=authenticate(token_file, credentials_file, scopes, logger))
+                                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/utils.py", line 66, in authenticate
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/reauth.py", line 366, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nspenna/Documents/PycharmProjects/english_class_automation/.venv/lib64/python3.13/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})
+2025-08-28 19:15:03,095 - upload - INFO - Starting upload for 09-2025 to folder 18zg...
+2025-08-28 19:15:03,095 - upload - INFO - Initiating new authentication flow
+2025-08-28 19:15:14,199 - upload - INFO - Created new Drive folder: 09-2025 (ID: 1XY-g5rsYHJqbITv2-4Z6TRett9bNK77T)
+2025-08-28 19:15:16,554 - upload - INFO - Uploaded: 09-2025_Anabella__invoice.png
+2025-08-28 19:15:18,807 - upload - INFO - Uploaded: 09-2025_Anabella_A__invoice.png
+2025-08-28 19:15:22,289 - upload - INFO - Uploaded: 09-2025_Ane_invoice.png
+2025-08-28 19:15:24,439 - upload - INFO - Uploaded: 09-2025_Camila_invoice.png
+2025-08-28 19:15:27,102 - upload - INFO - Uploaded: 09-2025_Euge_invoice.png
+2025-08-28 19:15:29,252 - upload - INFO - Uploaded: 09-2025_Felipe_invoice.png
+2025-08-28 19:15:33,451 - upload - INFO - Uploaded: 09-2025_Fifi_invoice.png
+2025-08-28 19:15:35,908 - upload - INFO - Uploaded: 09-2025_Hernan_invoice.png
+2025-08-28 19:15:38,059 - upload - INFO - Uploaded: 09-2025_Ian_invoice.png
+2025-08-28 19:15:40,414 - upload - INFO - Uploaded: 09-2025_Juliana_invoice.png
+2025-08-28 19:15:42,603 - upload - INFO - Uploaded: 09-2025_Luciana_A__invoice.png
+2025-08-28 19:15:44,817 - upload - INFO - Uploaded: 09-2025_Luciana_P__invoice.png
+2025-08-28 19:15:46,968 - upload - INFO - Uploaded: 09-2025_Mariana_invoice.png
+2025-08-28 19:15:49,119 - upload - INFO - Uploaded: 09-2025_Martina_invoice.png
+2025-08-28 19:15:51,473 - upload - INFO - Uploaded: 09-2025_Micol_invoice.png
+2025-08-28 19:15:53,727 - upload - INFO - Uploaded: 09-2025_Nahuel_invoice.png
+2025-08-28 19:15:55,877 - upload - INFO - Uploaded: 09-2025_Nori_invoice.png
+2025-08-28 19:15:58,130 - upload - INFO - Uploaded: 09-2025_Pablo_invoice.png
+2025-08-28 19:16:00,485 - upload - INFO - Uploaded: 09-2025_Patricia_invoice.png
+2025-08-28 19:16:02,840 - upload - INFO - Uploaded: 09-2025_Roxana_invoice.png
+2025-08-28 19:16:04,990 - upload - INFO - Uploaded: 09-2025_Valentina_invoice.png
+2025-08-28 19:16:07,243 - upload - INFO - Uploaded: 09-2025_Valentina_C__invoice.png
+2025-08-28 19:16:09,496 - upload - INFO - Uploaded: 09-2025_Juani_invoice.png
+2025-08-28 19:16:11,953 - upload - INFO - Uploaded: 09-2025_Matias_invoice.png
+2025-08-28 19:16:11,954 - upload - INFO - Upload completed with 24 successful files
